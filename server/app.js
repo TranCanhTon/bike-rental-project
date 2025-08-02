@@ -53,9 +53,9 @@ if (process.env.NODE_ENV === "production") {
   const __dirnamePath = path.resolve();
   app.use(express.static(path.join(__dirnamePath, "../client/build")));
 
-  // app.get("/*", (req, res) => {
-  //   res.sendFile(path.join(__dirnamePath, "../client/build", "index.html"));
-  // });
+  app.get("/:pathMatch(*)", (req, res) => {
+    res.sendFile(path.join(__dirnamePath, "../client/build", "index.html"));
+  });
 } else {
   app.get("/", (req, res) => {
     res.json("API is running...");
