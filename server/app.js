@@ -8,7 +8,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://bike-rental-backend-caja.onrender.com",
+      "https://bike-rental-project-mas3.onrender.com",
     ],
     credentials: true,
   })
