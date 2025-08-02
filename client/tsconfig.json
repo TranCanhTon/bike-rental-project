@@ -7,6 +7,9 @@
     "strict": true,
     "jsx": "react-jsx",
     "baseUrl": "./",
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmit": true,
     "paths": {
       "@/*": ["src/*"]
     },
