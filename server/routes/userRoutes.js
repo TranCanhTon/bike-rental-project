@@ -23,12 +23,12 @@ router
   )
   .get("/profile", authenticateUser, showCurrentUser)
   .patch("/changePassword", authenticateUser, changePassword)
-  .get("/:id", authenticateUser, getSingleUser)
   .patch(
     "/:id",
     authenticateUser,
     authorizePermissions("admin", "user"),
     updateUser
-  );
+  )
+  .get("/:id", authenticateUser, getSingleUser);
 
 module.exports = router;

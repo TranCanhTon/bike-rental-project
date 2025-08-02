@@ -20,9 +20,9 @@ router
   .get("/", authenticateUser, getAllBikes)
   .post("/", authenticateUser, createBike)
   .post("/uploadImage", authenticateUser, uploadImage)
+  .get("/:id/reviews", getSingleProductReviews)
   .get("/:id", authenticateUser, getSingleBike)
   .patch("/:id", authenticateUser, updateBike)
-  .delete("/:id", authenticateUser, deleteBike)
-  .get("/:id/reviews", getSingleProductReviews);
+  .delete("/:id", authenticateUser, deleteBike);
 
 module.exports = router;

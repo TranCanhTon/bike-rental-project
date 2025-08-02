@@ -13,7 +13,7 @@ router
   .get("/", getAllReviews)
   .post("/", authenticateUser, createReview)
   .patch("/:id", authenticateUser, updateReview)
-  .get("/:id", getSingleReview)
-  .delete("/:id", authenticateUser, deleteReview);
+  .delete("/:id", authenticateUser, deleteReview)
+  .get("/:id", getSingleReview);
 
 module.exports = router;
