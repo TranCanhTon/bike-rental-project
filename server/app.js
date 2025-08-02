@@ -43,10 +43,19 @@ const xss = require("xss-clean");
 const mongoSanitize = require("express-mongo-sanitize");
 
 // routes
+console.log("Mounting route:", "/api/v1/auth");
 app.use("/api/v1/auth", authRouter);
+
+console.log("Mounting route:", "/api/v1/users");
 app.use("/api/v1/users", userRouter);
+
+console.log("Mounting route:", "/api/v1/bikes");
 app.use("/api/v1/bikes", productRouter);
+
+console.log("Mounting route:", "/api/v1/reviews");
 app.use("/api/v1/reviews", reviewRouter);
+
+console.log("Mounting route:", "/api/v1/orders");
 app.use("/api/v1/orders", orderRouter);
 
 if (process.env.NODE_ENV === "production") {
