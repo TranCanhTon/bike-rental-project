@@ -17,7 +17,7 @@ router
   .get("/", authenticateUser, authorizePermissions("admin"), getAllOrders)
   .post("/", authenticateUser, createOrder)
   .get("/myOrders", authenticateUser, getCurrentUserOrders)
-  .patch("/:id", authenticateUser, updateOrder)
-  .get("/:id", authenticateUser, getSingleOrder);
+  .get("/:id", authenticateUser, getSingleOrder)
+  .patch("/:id", authenticateUser, updateOrder);
 
 module.exports = router;
