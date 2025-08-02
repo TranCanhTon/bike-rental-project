@@ -47,7 +47,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/bikes", productRouter);
 app.use("/api/v1/reviews", reviewRouter);
-app.use("/api/v1/orders", orderRouter);
+// app.use("/api/v1/orders", orderRouter);
 
 if (process.env.NODE_ENV === "production") {
   const __dirnamePath = path.resolve();
