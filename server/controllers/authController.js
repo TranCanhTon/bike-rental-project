@@ -105,7 +105,7 @@ const forgotPassword = async (req, res) => {
   if (user) {
     const passwordToken = crypto.randomBytes(40).toString("hex");
     const passwordTokenExpirationDate = new Date(Date.now() + 1000 * 60 * 10);
-    const origin = "http://localhost:3000";
+    const origin = "https://bike-rental-project-mas3.onrender.com";
 
     await sendResetPasswordEmail({
       name: user.name,

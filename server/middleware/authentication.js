@@ -2,7 +2,7 @@ const CustomError = require("../errors");
 const { isTokenValid } = require("../utils");
 
 const authenticateUser = async (req, res, next) => {
-  const token = req.signedCookies.token;
+  const token = req.cookies.token;
   if (!token) {
     throw new CustomError.UnauthenticatedError("Please log in first");
   }
