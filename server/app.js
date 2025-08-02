@@ -1,10 +1,9 @@
 require("dotenv").config();
 const cors = require("cors");
-
-// express
 const express = require("express");
 const app = express();
 const path = require("path");
+
 app.use(
   cors({
     origin: [
@@ -30,7 +29,7 @@ const productRouter = require("./routes/productRoutes");
 const reviewRouter = require("./routes/reviewRoutes");
 const orderRouter = require("./routes/orderRoutes");
 
-//midleware
+// middleware
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
@@ -52,18 +51,9 @@ app.use("/api/v1/bikes", productRouter);
 app.use("/api/v1/reviews", reviewRouter);
 app.use("/api/v1/orders", orderRouter);
 
-if (process.env.NODE_ENV === "production") {
-  const __dirnamePath = path.resolve();
-  app.use(express.static(path.join(__dirnamePath, "../client/dist")));
-
-  app.get(/.*/, (req, res) => {
-    res.sendFile(path.join(__dirnamePath, "../client/dist", "index.html"));
-  });
-} else {
-  app.get("/", (req, res) => {
-    res.json("API is running...");
-  });
-}
+app.get("/", (req, res) => {
+  res.json({ msg: "API is running..." });
+});
 
 app.use(errorHandlerMiddleware);
 app.use(notFoundMiddleware);
