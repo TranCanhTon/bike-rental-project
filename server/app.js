@@ -49,13 +49,20 @@ app.use("/api/v1/bikes", productRouter);
 app.use("/api/v1/reviews", reviewRouter);
 app.use("/api/v1/orders", orderRouter);
 
-app.get("/", (req, res) => {
-  try {
-    res.json("Hello");
-  } catch (err) {
-    next(err);
-  }
-});
+if (process.env.NODE_ENV === "production") {
+  const __dirnamePath = path.resolve();
+  app.use(express.static(path.join(__dirnamePath, "../client/build")));
+
+  // Catch-all to handle React Router
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirnamePath, "../client/build", "index.html"));
+  });
+} else {
+  // Dev mode root route
+  app.get("/", (req, res) => {
+    res.json("API is running...");
+  });
+}
 
 app.use(errorHandlerMiddleware);
 app.use(notFoundMiddleware);
