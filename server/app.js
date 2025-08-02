@@ -53,7 +53,7 @@ if (process.env.NODE_ENV === "production") {
   const __dirnamePath = path.resolve();
   app.use(express.static(path.join(__dirnamePath, "../client/build")));
 
-  app.get("/:pathMatch(*)", (req, res) => {
+  app.get("/:path(*)", (req, res) => {
     res.sendFile(path.join(__dirnamePath, "../client/build", "index.html"));
   });
 } else {
