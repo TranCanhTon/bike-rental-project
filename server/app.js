@@ -51,7 +51,7 @@ app.use("/api/v1/orders", orderRouter);
 
 if (process.env.NODE_ENV === "production") {
   const __dirnamePath = path.resolve();
-  app.use(express.static(path.join(__dirnamePath, "../client/build")));
+  app.use(express.static(path.join(__dirnamePath, "../client/dist")));
 
   app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirnamePath, "../client/build", "index.html"));
