@@ -7,7 +7,10 @@ const app = express();
 const path = require("path");
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000", // for local dev
+      "https://bike-rental-project-wdrj.onrender.com", // your deployed frontend
+    ],
     credentials: true,
   })
 );
