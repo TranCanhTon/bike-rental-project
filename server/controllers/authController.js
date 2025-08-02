@@ -72,7 +72,7 @@ const register = async (req, res) => {
     verificationToken,
   });
 
-  const origin = "http://localhost:3000";
+  const origin = "https://bike-rental-project-mas3.onrender.com";
 
   await sendVerificationEmail({
     name: user.name,
