@@ -139,7 +139,7 @@ export const CartDrawer = () => {
                       alignItems="center"
                     >
                       <Image
-                        src={`http://localhost:5000${item.image}`}
+                        src={`https://bike-rental-backend-caja.onrender.com${item.image}`}
                         alt={item.name}
                         boxSize="80px"
                         objectFit="cover"
@@ -246,7 +246,7 @@ export const CartDrawer = () => {
                         alignItems="center"
                       >
                         <Image
-                          src={`http://localhost:5000${item.image}`}
+                          src={`https://bike-rental-backend-caja.onrender.com${item.image}`}
                           alt={item.name}
                           boxSize="80px"
                           objectFit="cover"

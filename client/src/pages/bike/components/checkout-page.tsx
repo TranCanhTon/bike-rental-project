@@ -134,7 +134,7 @@ export const CheckOutPage = () => {
           {cartItems.map((item) => (
             <HStack spacing={4} key={item.id} align="flex-start">
               <Image
-                src={`http://localhost:5000${item.image}`}
+                src={`https://bike-rental-backend-caja.onrender.com${item.image}`}
                 alt={item.name}
                 boxSize="60px"
                 objectFit="cover"

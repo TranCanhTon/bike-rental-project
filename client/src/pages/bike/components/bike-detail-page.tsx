@@ -51,7 +51,7 @@ export const BikeDetailPage = () => {
   const { addToCart, moveToWishlist, wishlistItems, removeFromWishlist } =
     useCart();
 
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL = "https://bike-rental-backend-caja.onrender.com";
 
   useEffect(() => {
     const fetchBike = async () => {

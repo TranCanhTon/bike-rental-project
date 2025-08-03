@@ -23,7 +23,7 @@ export const BikePage = () => {
     fetchTest();
   }, []);
 
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL = "https://bike-rental-backend-caja.onrender.com";
 
   return (
     <Box>
