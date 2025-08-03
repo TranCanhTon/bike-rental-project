@@ -31,8 +31,9 @@ const login = async (req, res) => {
   }
 
   const tokenUser = createTokenUser(user);
+  const token = createJWT({ payload: tokenUser });
   attachCookiesToResponse({ res, user: tokenUser });
-  res.status(StatusCodes.OK).json({ user: tokenUser });
+  res.status(StatusCodes.OK).json({ user: tokenUser, token });
 };
 
 const verifyEmail = async (req, res) => {
