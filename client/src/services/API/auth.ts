@@ -12,7 +12,7 @@ interface RegisterCredentials {
 
 const login = async (credentials: LoginCredentials) => {
   const response = await API.post("/api/v1/auth/login", credentials);
-  return response.data.user;
+  return response.data;
 };
 
 const register = async (credentials: RegisterCredentials) => {
