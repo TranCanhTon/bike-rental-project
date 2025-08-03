@@ -14,10 +14,8 @@ export type CartContextType = {
   updateRentalDuration: (id: string, change: number) => void;
   isCartOpen: boolean;
   setIsCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
-
   wishlistItems: CartItem[];
   setWishlistItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
-  // addToWishlist: (item: CartItem) => void;
   removeFromWishlist: (id: string) => void;
   moveToWishlist: (item: CartItem) => void;
   moveToCart: (item: CartItem) => void;

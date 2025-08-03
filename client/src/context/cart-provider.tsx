@@ -15,7 +15,18 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   }, [cartItems]);
 
   const addToCart = (item: CartItem) => {
-    setCartItems((prev) => [...prev, item]);
+    setCartItems((prev) => {
+      const existingItem = prev.find((i) => i.id === item.id);
+
+      if (existingItem) {
+        return prev.map((i) =>
+          i.id === item.id ? { ...i, rentalDuration: i.rentalDuration + 1 } : i
+        );
+      }
+
+      return [...prev, { ...item, rentalDuration: 1 }];
+    });
+
     setIsCartOpen(true);
   };
 

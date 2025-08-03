@@ -91,7 +91,7 @@ export const BikeDetailPage = () => {
         position: "top-right",
       });
     } catch (err) {
-      console.error("Login error:", err);
+      console.error(err);
       toast({
         title: "Failed to delete review",
         description: "No authorization",
