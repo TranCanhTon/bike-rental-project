@@ -37,9 +37,7 @@ export const LoginPage = () => {
   const handleLogin = async () => {
     try {
       const user = await authAPI.login({ email, password });
-      if (user.token) {
-        localStorage.setItem("token", user.token);
-      }
+      localStorage.setItem("token", "true");
       navigate("/bikes");
       console.log("Logged in user:", user);
       toast({
