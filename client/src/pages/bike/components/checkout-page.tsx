@@ -13,12 +13,10 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { useCart } from "@/context/useCart";
-import { useNavigate } from "react-router-dom";
 import bgImage from "@/assets/background.svg";
 
 export const CheckOutPage = () => {
   const { cartItems } = useCart();
-  const navigate = useNavigate();
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.hourlyRate * item.rentalDuration,
@@ -112,7 +110,6 @@ export const CheckOutPage = () => {
 
         <Button
           w="100%"
-          onClick={() => navigate("/order-success")}
           color="#D4AF37"
           bg="#000000ff"
           _hover={{ bg: "#27374D", color: "#FFD700" }}
