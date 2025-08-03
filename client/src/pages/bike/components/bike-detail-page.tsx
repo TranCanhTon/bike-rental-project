@@ -342,7 +342,7 @@ export const BikeDetailPage = () => {
                       <VStack spacing={6} align="stretch">
                         {bike.reviews.map((review) => (
                           <Box
-                            key={review._id}
+                            key={review?._id}
                             p={4}
                             borderRadius="10px"
                             border="1px solid #181d27ff"
@@ -360,7 +360,7 @@ export const BikeDetailPage = () => {
                                   fontWeight="bold"
                                   fontSize="xs"
                                 >
-                                  {review.user.name.charAt(0).toUpperCase()}
+                                  {review?.user?.name.charAt(0).toUpperCase()}
                                 </Flex>
                                 <VStack align="flex-start" spacing={0}>
                                   <Text
@@ -368,7 +368,7 @@ export const BikeDetailPage = () => {
                                     fontSize="sm"
                                     color="#D4AF37"
                                   >
-                                    {review.user.name}
+                                    {review?.user?.name}
                                   </Text>
                                   <Flex my="5px">
                                     {Array.from({ length: 5 }).map(
@@ -379,7 +379,7 @@ export const BikeDetailPage = () => {
                                           w="10px"
                                           h="10px"
                                           opacity={
-                                            index < review.rating ? 1 : 0.2
+                                            index < review?.rating ? 1 : 0.2
                                           }
                                           mr="1px"
                                         />
@@ -389,7 +389,7 @@ export const BikeDetailPage = () => {
                                   <Text fontSize="xs" color="#D4AF37">
                                     Reviewed on{" "}
                                     {new Date(
-                                      review.updatedAt
+                                      review?.updatedAt
                                     ).toLocaleDateString("en-US", {
                                       year: "numeric",
                                       month: "long",
@@ -399,14 +399,14 @@ export const BikeDetailPage = () => {
                                 </VStack>
                               </HStack>
 
-                              {currentUser?.userId === review.user._id && (
+                              {currentUser?.userId === review?.user?._id && (
                                 <HStack spacing={2} ml="auto" mb="40px">
                                   <Image
                                     src={deleteIcon}
                                     boxSize="20px"
                                     cursor="pointer"
                                     onClick={() => {
-                                      setSelectedId(review._id);
+                                      setSelectedId(review?._id);
                                       setModalAction("Delete");
                                       setTargetType("review");
                                       onOpen();
@@ -417,7 +417,7 @@ export const BikeDetailPage = () => {
                                     boxSize="20px"
                                     cursor="pointer"
                                     onClick={() => {
-                                      setSelectedId(review._id);
+                                      setSelectedId(review?._id);
                                       setModalAction("Edit");
                                       setTargetType("review");
                                       onOpen();
@@ -433,10 +433,10 @@ export const BikeDetailPage = () => {
                               mb={1}
                               color="#D4AF37"
                             >
-                              {review.title}
+                              {review?.title}
                             </Text>
                             <Text fontSize="sm" color="#D4AF37">
-                              {review.comment}
+                              {review?.comment}
                             </Text>
                           </Box>
                         ))}
@@ -453,7 +453,7 @@ export const BikeDetailPage = () => {
           </Flex>
         </Box>
         <Box>
-          {bike && currentUser?.userId === bike.user._id && (
+          {bike && currentUser?.userId === bike?.user?._id && (
             <HStack spacing={2} ml="auto" mt={4}>
               <Image
                 src={deleteIcon}
