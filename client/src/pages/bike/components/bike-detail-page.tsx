@@ -73,6 +73,7 @@ export const BikeDetailPage = () => {
         console.error("Failed to fetch", err);
       }
     };
+    console.log(user);
     fetchBike();
     fetchUser();
   }, [id]);
