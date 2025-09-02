@@ -73,7 +73,6 @@ export const BikeDetailPage = () => {
         console.error("Failed to fetch", err);
       }
     };
-    console.log(currentUser);
     fetchBike();
     fetchUser();
   }, [id]);
@@ -454,25 +453,30 @@ export const BikeDetailPage = () => {
           </Flex>
         </Box>
         <Box>
-          {bike && currentUser?.userId === bike?.user?._id && (
+          {bike && (
             <HStack spacing={2} ml="auto" mt={4}>
-              <Image
-                src={deleteIcon}
-                boxSize="30px"
-                cursor="pointer"
-                onClick={() => {
-                  setSelectedId(bike._id);
-                  setModalAction("Delete");
-                  setTargetType("bike");
-                  onOpen();
-                }}
-              />
-              <Image
-                src={edit}
-                boxSize="30px"
-                cursor="pointer"
-                onClick={() => handleEditProduct(bike._id)}
-              />
+              {(currentUser?.role === "admin" ||
+                currentUser?.userId === bike?.user?._id) && (
+                <Image
+                  src={deleteIcon}
+                  boxSize="30px"
+                  cursor="pointer"
+                  onClick={() => {
+                    setSelectedId(bike._id);
+                    setModalAction("Delete");
+                    setTargetType("bike");
+                    onOpen();
+                  }}
+                />
+              )}
+              {currentUser?.userId === bike?.user?._id && (
+                <Image
+                  src={edit}
+                  boxSize="30px"
+                  cursor="pointer"
+                  onClick={() => handleEditProduct(bike._id)}
+                />
+              )}
             </HStack>
           )}
         </Box>
