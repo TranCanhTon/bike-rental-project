@@ -61,6 +61,11 @@ const deleteBike = async (req, res) => {
       `No bike found with thy id: ${req.params.id}`
     );
   }
+  if (user.role !== "admin" && bike.user._id.toString() !== user.userId) {
+    throw new CustomError.UnauthorizedError(
+      "You are not allowed to delete this"
+    );
+  }
   checkPermissions(req.user, user._id);
   await bike.deleteOne();
   res.status(StatusCodes.OK).json({ msg: "Successfully deleted" });
