@@ -85,8 +85,7 @@ export const LoginPage = () => {
           </Heading>
           <Text>Please enter your details!</Text>
           <Text fontSize="12px" color="gray.500" my={2}>
-            Note: It may take up to 30 seconds to log in the first time while
-            the server wakes up.
+            Note: The first login may take 30 - 60 seconds
           </Text>
           <VStack spacing={8} align="stretch">
             <Tabs isFitted variant="line">
