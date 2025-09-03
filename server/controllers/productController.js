@@ -55,18 +55,13 @@ const updateBike = async (req, res) => {
 const deleteBike = async (req, res) => {
   const { id } = req.params;
   const bike = await Bike.findById({ _id: id });
+  const user = await User.findById(bike.user._id);
   if (!bike) {
     throw new CustomError.NotFoundError(
       `No bike found with thy id: ${req.params.id}`
     );
   }
-  // const user = await User.findById(bike.user._id);
-  if (req.user.role !== "admin" && bike.user._id.toString() !== user.userId) {
-    throw new CustomError.UnauthorizedError(
-      "You are not allowed to delete this"
-    );
-  }
-  checkPermissions(req.user, req.user._id);
+  checkPermissions(req.user, user._id);
   await bike.deleteOne();
   res.status(StatusCodes.OK).json({ msg: "Successfully deleted" });
 };
