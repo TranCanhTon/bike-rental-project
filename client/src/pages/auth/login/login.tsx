@@ -84,6 +84,10 @@ export const LoginPage = () => {
             Welcome back
           </Heading>
           <Text>Please enter your details!</Text>
+          <Text fontSize="12px" color="gray.500" my={2}>
+            Note: It may take up to 30 seconds to log in the first time while
+            the server wakes up.
+          </Text>
           <VStack spacing={8} align="stretch">
             <Tabs isFitted variant="line">
               <TabList>
